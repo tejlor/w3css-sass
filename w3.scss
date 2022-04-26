@@ -419,6 +419,12 @@ a {
 	}
 }
 
+@media (min-width:993px) {
+	.w3-hide-large {
+		display: none !important;
+	}
+}
+
 .w3-top,
 .w3-bottom {
 	position: fixed;
@@ -520,7 +526,6 @@ $modes: left, right, justify, center;
 	letter-spacing: 4px;
 }
 
-
 h1,
 h2,
 h3,
@@ -575,27 +580,27 @@ h6 {
 }
 
 .w3-padding-small {
-	padding: 1/2*$padding $padding !important;
+	padding: calc(1/2)*$padding $padding !important;
 }
 
 .w3-padding-large {
-	padding: 3/2*$padding 3*$padding !important;
+	padding: calc(3/2)*$padding 3*$padding !important;
 }
 
-$sizes: 16px, 24px, 32px, 48px, 64px;
+$sizes: 16, 24, 32, 48, 64;
 @each $size in $sizes {
   .w3-padding-#{$size} {
-    padding-top: $size !important;
-	  padding-bottom: $size !important;
+    padding-top: #{$size}px !important;
+	  padding-bottom: #{$size}px !important;
   }
   
   .w3-padding-top-#{$size} {
-    padding-top: $size !important;
+    padding-top: #{$size}px !important;
   }
 	
   .w3-padding-bottom-#{$size} {
-        padding-top: $size !important;
-    }
+      padding-top: #{$size}px !important;
+  }
 }
 /* #endregion */
 
@@ -615,7 +620,7 @@ $sizes: 16px, 24px, 32px, 48px, 64px;
 }
 
 @each $side in $sides {
-    .w3-bar-#{side} {
+    .w3-bar-#{$side} {
         border-#{$side}: 6px solid $gray !important;
     }
 }
@@ -789,7 +794,7 @@ $sizes: 16px, 24px, 32px, 48px, 64px;
 	width: 3*$padding;
 	height: 3*$padding;
 	position: relative;
-	top: 3/4*$padding;
+	top: calc(3/4)*$padding;
 }
 /* #endregion */
 
@@ -996,14 +1001,14 @@ $sizes: 16px, 24px, 32px, 48px, 64px;
 
 @for $i from 1 through 12 {
     .w3-col.s#{$i} {
-        width: $i * (1/12) * 100%;
+        width: $i * calc(1/12) * 100%;
     }
 }
 
 @media (min-width:601px) {
 	@for $i from 1 through 12 {
         .w3-col.m#{$i} {
-            width: $i * (1/12) * 100%;
+            width: $i * calc(1/12) * 100%;
         }
     }
 }
@@ -1011,7 +1016,7 @@ $sizes: 16px, 24px, 32px, 48px, 64px;
 @media (min-width:993px) {
     @for $i from 1 through 12 {
         .w3-col.l#{$i} {
-            width: $i * (1/12) * 100%;
+            width: $i * calc(1/12) * 100%;
         }
     }
 }
@@ -1158,7 +1163,7 @@ $round: 2px;
 .w3-code {
 	width: auto;
 	background-color: white;
-	padding: $padding 3/2*$padding;
+	padding: $padding calc(3/2)*$padding;
 	border-left: 4px solid #4CAF50;
 	word-wrap: break-word;
 	margin-top: $margin !important;
